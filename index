@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frozenway - Let's Plays et Infos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Bienvenue sur le site de Frozenway</h1>
+        <p>Retrouvez ici mes derniers let's play et quelques infos supplémentaires !</p>
+    </header>
+
+    <!-- Section vidéos YouTube -->
+    <section id="videos">
+        <h2>Dernières vidéos</h2>
+        <div id="video-container">
+            <!-- Les vidéos seront injectées ici par JavaScript -->
+        </div>
+    </section>
+
+    <!-- Section À propos de moi -->
+    <section id="about">
+        <h2>À propos de moi</h2>
+        <p>Salut ! Moi c'est Frozenway, petit streamer passionné par les jeux vidéo. 
+           J'adore partager mes aventures vidéoludiques avec vous via mes streams et mes let's play.</p>
+        <p>N'hésitez pas à me suivre sur Twitch et Twitter pour ne rien rater !</p>
+    </section>
+
+    <!-- Section liens vers Twitch et Twitter -->
+    <section id="links">
+        <h2>Mes réseaux</h2>
+        <div class="button-container">
+            <a href="https://www.twitch.tv/frozenway86" class="button" target="_blank">Suivez-moi sur Twitch</a>
+            <a href="https://twitter.com/frozenway86" class="button" target="_blank">Suivez-moi sur Twitter</a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
