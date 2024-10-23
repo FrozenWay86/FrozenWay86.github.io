@@ -13,6 +13,14 @@ function showSection(sectionId) {
     document.getElementById(sectionId).style.display = 'block';
 }
 
+function showTwitchSection(twitchSectionId) {
+    const twitchSections = document.querySelectorAll('.twitch-section');
+    twitchSections.forEach(section => {
+        section.style.display = 'none';
+    });
+    document.getElementById(twitchSectionId).style.display = 'block';
+}
+
 function nextVideo() {
     currentVideoIndex = (currentVideoIndex + 1) % videos.length;
     document.getElementById('video-player').src = videos[currentVideoIndex];
