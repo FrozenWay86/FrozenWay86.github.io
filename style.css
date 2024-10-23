@@ -58,6 +58,45 @@ nav .nav-buttons button:hover {
     cursor: pointer;
 }
 
+/* Cartes pour la section speedrun */
+.speedrun-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.speedrun-card {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.speedrun-card h3 {
+    margin-bottom: 10px;
+}
+
+.speedrun-card p {
+    margin: 5px 0;
+}
+
+.speedrun-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #9146FF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.speedrun-card a:hover {
+    background-color: #772ce8;
+}
+
 .twitch-section {
     margin: 20px 0;
 }
@@ -65,10 +104,6 @@ nav .nav-buttons button:hover {
 .twitch-section img {
     width: 100%;
     border: 2px solid #9146FF;
-}
-
-.twitch-section h3 {
-    color: white;
 }
 
 #contact a {
