@@ -15,9 +15,11 @@
 
     <!-- Menu pour choisir la section à afficher -->
     <nav>
-        <button onclick="showSection('videos')">Mes dernières vidéos YouTube</button>
-        <button onclick="showSection('speedruns')">Mes speedruns</button>
-        <button onclick="showSection('contact')">Contact</button>
+        <div class="nav-buttons">
+            <button onclick="showSection('videos')">Mes dernières vidéos YouTube</button>
+            <button onclick="showSection('speedruns')">Mes speedruns</button>
+            <button onclick="showSection('contact')">Contact</button>
+        </div>
     </nav>
 
     <!-- Conteneur principal des blocs -->
@@ -25,11 +27,11 @@
         <!-- Bloc Mes dernières vidéos YouTube -->
         <div id="videos" class="block">
             <h2>Mes dernières vidéos YouTube</h2>
-            <ul>
-                <li><a href="https://www.youtube.com/embed/3P14G2Che-8" target="_blank">Vidéo 1</a></li>
-                <li><a href="https://www.youtube.com/embed/T7d7ULdGyP4" target="_blank">Vidéo 2</a></li>
-                <li><a href="https://www.youtube.com/embed/UVp27NR5R6Q" target="_blank">Vidéo 3</a></li>
-            </ul>
+            <div class="video-grid">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3P14G2Che-8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/T7d7ULdGyP4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/UVp27NR5R6Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
 
         <!-- Bloc Mes speedruns -->
@@ -38,7 +40,7 @@
             <ul>
                 <li><a href="https://www.speedrun.com/fr-FR/sm64" target="_blank">Speedrun Super Mario 64</a></li>
                 <li><a href="https://www.speedrun.com/fr-FR/sf64" target="_blank">Speedrun StarFox 64</a></li>
-                <li><a href="https://www.speedrun.com/fr-FR/mk8dx" target="_blank">Speedrun Mario Kart 8 Deluxe</a></li>
+                <li><a href="https://www.speedrun.com/fr-FR/mk8dx" target="_blank">Speedrun Mario Kart 8 deluxe</a></li>
             </ul>
         </div>
 
