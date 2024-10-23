@@ -2,14 +2,13 @@ body {
     font-family: Arial, sans-serif;
     background-image: url('background_image.jpg');
     background-size: cover;
-    color: white; /* Texte en blanc */
+    color: white; /* Texte en blanc pour tout le site */
 }
 
 header {
     text-align: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond sombre pour le header */
 }
 
 nav .nav-buttons {
@@ -35,6 +34,7 @@ nav .nav-buttons button:hover {
 .container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Permet l'affichage horizontal des cartes */
 }
 
 .block {
@@ -55,32 +55,31 @@ nav .nav-buttons button:hover {
     font-size: 24px;
     background-color: transparent;
     border: none;
-    color: white; /* Texte en blanc */
+    color: white; /* Texte des boutons de rotation en blanc */
     cursor: pointer;
 }
 
-.speedrun-list {
+.speedrun-cards {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: center; /* Centrer les cartes */
+    flex-wrap: wrap; /* Permet le passage à la ligne */
 }
 
-.speedrun-item {
-    margin: 20px;
-    border: 2px solid #9146FF;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.6); /* Fond sombre pour contraster */
-    color: white; /* Texte en blanc */
-    width: 200px;
+.speedrun-card {
+    background-color: rgba(255, 255, 255, 0.8); /* Fond blanc pour les cartes */
+    color: black; /* Texte en noir pour les cartes */
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 300px; /* Largeur fixe pour les cartes */
+}
+
+.twitch-section {
+    margin: 20px 0;
 }
 
 .twitch-section img {
     width: 100%;
     border: 2px solid #9146FF;
-}
-
-.twitch-content {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
 }
