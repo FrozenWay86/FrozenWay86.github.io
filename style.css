@@ -2,13 +2,13 @@ body {
     font-family: Arial, sans-serif;
     background-image: url('background_image.jpg');
     background-size: cover;
-    color: white; /* Texte en blanc pour tout le site */
+    color: white;
 }
 
 header {
     text-align: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5); /* Fond sombre pour le header */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 nav .nav-buttons {
@@ -33,8 +33,8 @@ nav .nav-buttons button:hover {
 
 .container {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Permet l'affichage horizontal des cartes */
+    flex-direction: column;
+    align-items: center;
 }
 
 .block {
@@ -55,31 +55,45 @@ nav .nav-buttons button:hover {
     font-size: 24px;
     background-color: transparent;
     border: none;
-    color: white; /* Texte des boutons de rotation en blanc */
+    color: white;
     cursor: pointer;
 }
 
-.speedrun-cards {
+.twitch-content {
     display: flex;
-    justify-content: center; /* Centrer les cartes */
-    flex-wrap: wrap; /* Permet le passage à la ligne */
-}
-
-.speedrun-card {
-    background-color: rgba(255, 255, 255, 0.8); /* Fond blanc pour les cartes */
-    color: black; /* Texte en noir pour les cartes */
-    margin: 10px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 300px; /* Largeur fixe pour les cartes */
+    justify-content: space-around;
+    width: 100%;
 }
 
 .twitch-section {
-    margin: 20px 0;
+    width: 30%;
+    text-align: center;
+    margin: 20px;
 }
 
 .twitch-section img {
     width: 100%;
     border: 2px solid #9146FF;
+}
+
+.speedrun-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.speedrun-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    color: white; /* Texte blanc pour les cartes */
+}
+
+.speedrun-card a {
+    color: white; /* Lien en blanc pour les cartes */
+}
+
+#contact a {
+    color: black; /* Lien en noir dans la section Contact */
 }
