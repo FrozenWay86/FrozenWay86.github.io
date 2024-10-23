@@ -1,44 +1,60 @@
+/* Style général */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f0f0f0;
     color: #333;
 }
 
 header {
-    background-color: #333;
+    background-color: #4CAF50;
     color: white;
-    padding: 20px;
+    padding: 30px;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
-    margin: 20px 0;
+h1 {
+    font-size: 2.5em;
+    margin: 0;
 }
 
+p {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* Style du menu de navigation */
 nav {
-    text-align: center;
     margin: 20px 0;
+    text-align: center;
 }
 
-nav button {
+.nav-buttons {
+    display: inline-block;
+}
+
+.nav-buttons button {
     padding: 10px 20px;
     margin: 0 10px;
     background-color: #008CBA;
     color: white;
     border: none;
     border-radius: 5px;
+    font-size: 1.1em;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-nav button:hover {
+.nav-buttons button:hover {
     background-color: #005f6a;
 }
 
+/* Conteneur principal des sections */
 .container {
     display: flex;
-    justify-content: center; /* Centre les blocs */
+    justify-content: center;
     padding: 20px;
 }
 
@@ -48,13 +64,13 @@ nav button:hover {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex: 1;
-    max-width: 600px; /* Pour limiter la taille */
+    max-width: 800px;
     margin: 0 10px;
 }
 
 .block h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    font-size: 1.8em;
+    margin-bottom: 20px;
 }
 
 ul {
@@ -69,8 +85,21 @@ ul li {
 ul li a {
     text-decoration: none;
     color: #008CBA;
+    font-weight: bold;
 }
 
 ul li a:hover {
     color: #005f6a;
+}
+
+/* Grille pour les vidéos YouTube */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+iframe {
+    border-radius: 8px;
 }
