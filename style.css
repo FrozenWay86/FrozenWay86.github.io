@@ -33,8 +33,7 @@ nav .nav-buttons button:hover {
 
 .container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 
 .block {
@@ -59,16 +58,8 @@ nav .nav-buttons button:hover {
     cursor: pointer;
 }
 
-.twitch-content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-
 .twitch-section {
-    width: 30%;
-    text-align: center;
-    margin: 20px;
+    margin: 20px 0;
 }
 
 .twitch-section img {
@@ -76,24 +67,10 @@ nav .nav-buttons button:hover {
     border: 2px solid #9146FF;
 }
 
-.speedrun-list {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.speedrun-card {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    margin: 10px;
-    border-radius: 10px;
-    color: white; /* Texte blanc pour les cartes */
-}
-
-.speedrun-card a {
-    color: white; /* Lien en blanc pour les cartes */
+.twitch-section h3 {
+    color: white;
 }
 
 #contact a {
-    color: black; /* Lien en noir dans la section Contact */
+    color: black;
 }
