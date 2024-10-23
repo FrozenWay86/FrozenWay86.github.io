@@ -3,40 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenue sur le site de FrozenWay</title>
+    <title>Frozenway - Let's Plays et Infos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
     <header>
-        <h1>Bienvenue sur mon site</h1>
-        <p>Vous trouverez ici les dernières actualités de la chaine !</p>
+        <h1>Frozenway - Let's Plays et Speedruns</h1>
+        <p>Bienvenue sur mon site ! Vous trouverez ici mes vidéos, mes speedruns, et comment me contacter.</p>
     </header>
 
-    <!-- Section vidéos YouTube -->
-    <section id="videos">
-        <h2>Dernières vidéos</h2>
-        <div id="video-container">
-            <!-- Les vidéos seront injectées ici par JavaScript -->
-        </div>
-    </section>
+    <!-- Menu pour choisir la section à afficher -->
+    <nav>
+        <button onclick="showSection('videos')">Mes dernières vidéos YouTube</button>
+        <button onclick="showSection('speedruns')">Mes speedruns</button>
+        <button onclick="showSection('contact')">Contact</button>
+    </nav>
 
-    <!-- Section À propos de moi -->
-    <section id="about">
-        <h2>À propos de moi</h2>
-        <p>Salut ! Moi c'est Frozenway, petit streamer passionné par les jeux vidéo. 
-           J'adore partager mes aventures vidéoludiques avec vous via mes streams et mes let's play.</p>
-        <p>N'hésitez pas à me suivre sur Twitch et Twitter pour ne rien rater !</p>
-    </section>
-
-    <!-- Section liens vers Twitch et Twitter -->
-    <section id="links">
-        <h2>Mes réseaux</h2>
-        <div class="button-container">
-            <a href="https://www.twitch.tv/frozenway86" class="button" target="_blank">Suivez-moi sur Twitch</a>
-            <a href="https://twitter.com/frozenway86" class="button" target="_blank">Suivez-moi sur Twitter</a>
+    <!-- Conteneur principal des blocs -->
+    <div class="container">
+        <!-- Bloc Mes dernières vidéos YouTube -->
+        <div id="videos" class="block">
+            <h2>Mes dernières vidéos YouTube</h2>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank">Vidéo 1</a></li>
+                <li><a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank">Vidéo 2</a></li>
+                <li><a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank">Vidéo 3</a></li>
+            </ul>
         </div>
-    </section>
+
+        <!-- Bloc Mes speedruns -->
+        <div id="speedruns" class="block" style="display: none;">
+            <h2>Mes speedruns</h2>
+            <ul>
+                <li><a href="https://www.speedrun.com/game1" target="_blank">Speedrun Game 1</a></li>
+                <li><a href="https://www.speedrun.com/game2" target="_blank">Speedrun Game 2</a></li>
+                <li><a href="https://www.speedrun.com/game3" target="_blank">Speedrun Game 3</a></li>
+            </ul>
+        </div>
+
+        <!-- Bloc Contact -->
+        <div id="contact" class="block" style="display: none;">
+            <h2>Contact</h2>
+            <p>Suivez-moi sur <a href="https://www.twitch.tv/frozenway86" target="_blank">Twitch</a></p>
+            <p>Suivez-moi sur <a href="https://twitter.com/frozenway86" target="_blank">Twitter</a></p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
