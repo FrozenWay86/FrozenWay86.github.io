@@ -17,39 +17,60 @@ h1, h2 {
     margin: 20px 0;
 }
 
-#videos, #about, #links {
-    padding: 20px;
+nav {
     text-align: center;
+    margin: 20px 0;
 }
 
-#video-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-iframe {
-    width: 30%;
-    height: 200px;
-    margin: 10px;
-}
-
-.button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.button {
-    display: inline-block;
+nav button {
+    padding: 10px 20px;
+    margin: 0 10px;
     background-color: #008CBA;
     color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    margin: 10px;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-.button:hover {
+nav button:hover {
     background-color: #005f6a;
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Centre les blocs */
+    padding: 20px;
+}
+
+.block {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 600px; /* Pour limiter la taille */
+    margin: 0 10px;
+}
+
+.block h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #008CBA;
+}
+
+ul li a:hover {
+    color: #005f6a;
 }
