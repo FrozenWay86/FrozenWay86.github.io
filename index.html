@@ -38,37 +38,45 @@
         <!-- Bloc Mes speedruns -->
         <div id="speedruns" class="block" style="display: none;">
             <h2>Mes speedruns</h2>
-            <div class="speedrun-list">
-                <div class="speedrun-card">
+            <ul class="speedrun-list">
+                <li>
                     <h3>Jeu : Super Mario 64</h3>
                     <p>Catégorie : 16 Star Emulator</p>
                     <p>Temps : 19:58</p>
                     <a href="https://www.youtube.com/embed/UVp27NR5R6Q" target="_blank">Regarder la run</a>
-                </div>
-                <div class="speedrun-card">
+                </li>
+                <li>
                     <h3>Jeu : Starfox64</h3>
                     <p>Catégorie : Any%</p>
                     <p>Temps : 25:04</p>
                     <a href="https://www.youtube.com/embed/fxChVPykrJM" target="_blank">Regarder la run</a>
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
 
         <!-- Bloc Twitch -->
         <div id="twitch" class="block" style="display: none;">
             <h2>Mon contenu Twitch</h2>
-            <div class="twitch-content">
-                <div class="twitch-section">
-                    <h3>Planning</h3>
+            <!-- Sous-menu pour Twitch -->
+            <nav>
+                <div class="nav-buttons">
+                    <button onclick="showTwitchSection('planning')">Planning</button>
+                    <button onclick="showTwitchSection('emotes')">Emotes</button>
+                    <button onclick="showTwitchSection('games')">Jeux joués</button>
+                </div>
+            </nav>
+            <div id="twitch-content">
+                <div id="planning" class="twitch-section" style="display: none;">
+                    <h3>Mon planning de la semaine</h3>
                     <img src="planning.jpg" alt="Planning de la semaine">
                 </div>
-                <div class="twitch-section">
-                    <h3>Emotes</h3>
+                <div id="emotes" class="twitch-section" style="display: none;">
+                    <h3>Mes emotes Twitch</h3>
                     <img src="emotes.jpg" alt="Mes emotes">
                 </div>
-                <div class="twitch-section">
-                    <h3>Jeux joués</h3>
-                    <p>Liste des jeux joués sur ma chaîne Twitch.</p>
+                <div id="games" class="twitch-section" style="display: none;">
+                    <h3>Jeux joués sur Twitch</h3>
+                    <p>Liste de jeux joués sur ma chaîne Twitch à venir...</p>
                 </div>
             </div>
         </div>
@@ -76,9 +84,9 @@
         <!-- Bloc Contact -->
         <div id="contact" class="block" style="display: none;">
             <h2>Contact</h2>
-            <p>Suivez-moi sur <a href="https://www.twitch.tv/frozenway86">Twitch</a></p>
-            <p>Suivez-moi sur <a href="https://twitter.com/frozenway86">Twitter</a></p>
-            <p>Rejoignez mon Discord : <a href="#" target="_blank">Discord</a></p> <!-- Remplacer "#" par le lien Discord -->
+            <p>Suivez-moi sur <a href="https://www.twitch.tv/frozenway86" target="_blank" style="color: black;">Twitch</a></p>
+            <p>Suivez-moi sur <a href="https://twitter.com/frozenway86" target="_blank" style="color: black;">Twitter</a></p>
+            <p>Rejoignez mon Discord : <a href="#" target="_blank" style="color: black;">Discord</a></p>
         </div>
     </div>
 
