@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('path_to_background_image.jpg'); /* Utiliser une image en lien avec les jeux vidéo / Twitch */
+    background-image: url('background_image.jpg'); /* Utiliser une image en lien avec les jeux vidéo / Twitch */
     background-size: cover;
-    color: white;
+    color: black;
 }
 
 header {
