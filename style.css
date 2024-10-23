@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('background_image.jpg'); /* Utiliser une image en lien avec les jeux vidéo / Twitch */
+    background-image: url('background_image.jpg');
     background-size: cover;
-    color: black;
+    color: white;
 }
 
 header {
@@ -17,7 +17,7 @@ nav .nav-buttons {
 }
 
 nav .nav-buttons button {
-    background-color: #9146FF; /* Couleur rappelant Twitch */
+    background-color: #9146FF;
     border: none;
     color: white;
     padding: 15px 30px;
