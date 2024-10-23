@@ -2,13 +2,14 @@ body {
     font-family: Arial, sans-serif;
     background-image: url('background_image.jpg');
     background-size: cover;
-    color: white;
+    color: white; /* Texte en blanc */
 }
 
 header {
     text-align: center;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.5);
+    color: white;
 }
 
 nav .nav-buttons {
@@ -54,15 +55,32 @@ nav .nav-buttons button:hover {
     font-size: 24px;
     background-color: transparent;
     border: none;
-    color: white;
+    color: white; /* Texte en blanc */
     cursor: pointer;
 }
 
-.twitch-section {
-    margin: 20px 0;
+.speedrun-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.speedrun-item {
+    margin: 20px;
+    border: 2px solid #9146FF;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fond sombre pour contraster */
+    color: white; /* Texte en blanc */
+    width: 200px;
 }
 
 .twitch-section img {
     width: 100%;
     border: 2px solid #9146FF;
+}
+
+.twitch-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
