@@ -10,7 +10,7 @@
     <!-- Header -->
     <header>
         <h1>Frozenway - Let's Plays et Speedruns</h1>
-        <p>Bienvenue sur mon site ! Vous trouverez ici mes vidéos, mes speedruns, et comment me contacter.</p>
+        <p>Bienvenue sur mon site ! Vous trouverez ici mes vidéos, mes speedruns, et mon contenu Twitch.</p>
     </header>
 
     <!-- Menu pour choisir la section à afficher -->
@@ -18,6 +18,7 @@
         <div class="nav-buttons">
             <button onclick="showSection('videos')">Mes dernières vidéos YouTube</button>
             <button onclick="showSection('speedruns')">Mes speedruns</button>
+            <button onclick="showSection('twitch')">Twitch</button>
             <button onclick="showSection('contact')">Contact</button>
         </div>
     </nav>
@@ -27,21 +28,45 @@
         <!-- Bloc Mes dernières vidéos YouTube -->
         <div id="videos" class="block">
             <h2>Mes dernières vidéos YouTube</h2>
-            <div class="video-grid">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/3P14G2Che-8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/T7d7ULdGyP4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/UVp27NR5R6Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-rotation">
+                <button onclick="prevVideo()">←</button>
+                <iframe id="video-player" width="560" height="315" src="https://www.youtube.com/embed/3P14G2Che-8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <button onclick="nextVideo()">→</button>
             </div>
         </div>
 
         <!-- Bloc Mes speedruns -->
         <div id="speedruns" class="block" style="display: none;">
             <h2>Mes speedruns</h2>
-            <ul>
-                <li><a href="https://www.speedrun.com/fr-FR/sm64" target="_blank">Speedrun Super Mario 64</a></li>
-                <li><a href="https://www.speedrun.com/fr-FR/sf64" target="_blank">Speedrun StarFox 64</a></li>
-                <li><a href="https://www.speedrun.com/fr-FR/mk8dx" target="_blank">Speedrun Mario Kart 8 deluxe</a></li>
+            <ul class="speedrun-list">
+                <li>
+                    <h3>Jeu : Super Mario 64</h3>
+                    <p>Catégorie : 16 Star Emulator</p>
+                    <p>Temps : 19:58</p>
+                    <a href="https://www.youtube.com/embed/UVp27NR5R6Q" target="_blank">Regarder la run</a>
+                </li>
+                <li>
+                    <h3>Jeu : Starfox64</h3>
+                    <p>Catégorie : Any%</p>
+                    <p>Temps : 25:04</p>
+                    <a href="https://www.youtube.com/embed/fxChVPykrJM" target="_blank">Regarder la run</a>
+                </li>
             </ul>
+        </div>
+
+        <!-- Bloc Twitch -->
+        <div id="twitch" class="block" style="display: none;">
+            <h2>Mon contenu Twitch</h2>
+            <div class="twitch-content">
+                <div class="twitch-section">
+                    <h3>Mon planning de la semaine</h3>
+                    <img src="planning.jpg" alt="Planning de la semaine">
+                </div>
+                <div class="twitch-section">
+                    <h3>Mes emotes Twitch</h3>
+                    <img src="emotes.jpg" alt="Mes emotes">
+                </div>
+            </div>
         </div>
 
         <!-- Bloc Contact -->
@@ -49,6 +74,7 @@
             <h2>Contact</h2>
             <p>Suivez-moi sur <a href="https://www.twitch.tv/frozenway86" target="_blank">Twitch</a></p>
             <p>Suivez-moi sur <a href="https://twitter.com/frozenway86" target="_blank">Twitter</a></p>
+            <p>Rejoignez mon Discord : <a href="#" target="_blank">Discord</a></p> <!-- Remplacer "#" par le lien Discord -->
         </div>
     </div>
 
