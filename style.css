@@ -1,8 +1,11 @@
+/* Styles généraux */
 body {
     font-family: Arial, sans-serif;
     background-image: url('background_image.jpg');
     background-size: cover;
     color: white;
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -11,101 +14,89 @@ header {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-nav .nav-buttons {
+/* Boutons de navigation */
+nav .nav-buttons, .sub-nav-buttons {
     text-align: center;
     margin: 20px 0;
 }
 
-nav .nav-buttons button {
+nav .nav-buttons button, .sub-nav-buttons button {
     background-color: #9146FF;
     border: none;
     color: white;
-    padding: 15px 30px;
+    padding: 10px 20px;
     margin: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 10px;
-}
-
-nav .nav-buttons button:hover {
-    background-color: #772ce8;
 }
 
 .container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
 }
 
 .block {
-    display: none;
+    width: 100%;
+    max-width: 600px;
 }
 
-.block.active {
+/* Transition pour le fondu */
+#video-player {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+/* Styles des cartes pour speedrun */
+.speedrun-list li {
     display: block;
-}
-
-.video-rotation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.video-rotation button {
-    font-size: 24px;
-    background-color: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
-/* Cartes pour la section speedrun */
-.speedrun-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.speedrun-card {
     background-color: white;
     color: black;
+    margin: 10px 0;
+    padding: 15px;
     border-radius: 10px;
-    padding: 20px;
-    width: 250px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-.speedrun-card h3 {
-    margin-bottom: 10px;
-}
-
-.speedrun-card p {
-    margin: 5px 0;
-}
-
-.speedrun-card a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #9146FF;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.speedrun-card a:hover {
-    background-color: #772ce8;
-}
-
-.twitch-section {
-    margin: 20px 0;
-}
-
-.twitch-section img {
     width: 100%;
-    border: 2px solid #9146FF;
 }
 
+/* Liens Contact */
 #contact a {
-    color: black;
+    color: white;
+    text-decoration: underline;
+}
+
+/* Media Queries pour mobile */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.2em;
+        padding: 10px;
+    }
+
+    nav .nav-buttons button, .sub-nav-buttons button {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    .video-rotation iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .video-rotation {
+        flex-direction: column;
+    }
+
+    .speedrun-list li {
+        font-size: 1em;
+    }
+
+    .twitch-section {
+        margin: 10px 0;
+    }
 }
