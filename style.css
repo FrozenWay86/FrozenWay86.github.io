@@ -44,6 +44,19 @@ nav .nav-buttons button, .sub-nav-buttons button {
     max-width: 600px;
 }
 
+.video-rotation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-rotation span {
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    padding: 0 15px;
+}
+
 /* Transition pour le fondu */
 #video-player {
     opacity: 1;
@@ -63,6 +76,13 @@ nav .nav-buttons button, .sub-nav-buttons button {
     padding: 15px;
     border-radius: 10px;
     width: 100%;
+}
+
+/* Planning spécifique */
+.planning-image {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Liens Contact */
