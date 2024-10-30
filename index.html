@@ -35,58 +35,58 @@
             </div>
         </div>
 
-        <!-- Bloc Mes speedruns avec des cartes -->
+        <!-- Bloc Mes speedruns -->
         <div id="speedruns" class="block" style="display: none;">
             <h2>Mes speedruns</h2>
-            <div class="speedrun-list">
-                <div class="speedrun-card">
+            <ul class="speedrun-list">
+                <li>
                     <h3>Jeu : Super Mario 64</h3>
                     <p>Catégorie : 16 Star Emulator</p>
                     <p>Temps : 19:58</p>
                     <a href="https://www.youtube.com/embed/UVp27NR5R6Q" target="_blank">Regarder la run</a>
-                </div>
-                <div class="speedrun-card">
+                </li>
+                <li>
                     <h3>Jeu : Starfox64</h3>
-                    <p>Catégorie : Any%</p>
+                    <p>Catégorie : Any% Emulator</p>
                     <p>Temps : 25:04</p>
                     <a href="https://www.youtube.com/embed/fxChVPykrJM" target="_blank">Regarder la run</a>
-                </div>
-            </div>
+                </li>
+                <li>
+                    <h3>Jeu : Mario Karti 8 Deluxe</h3>
+                    <p>Catégorie : 48 Tracks 150CC Items</p>
+                    <p>Temps : 2:09:07</p>
+                </li>
+            </ul>
         </div>
 
-        <!-- Bloc Twitch avec sous-boutons -->
+        <!-- Bloc Twitch -->
         <div id="twitch" class="block" style="display: none;">
             <h2>Mon contenu Twitch</h2>
-            <!-- Sous-menu pour Twitch -->
-            <nav>
-                <div class="nav-buttons">
-                    <button onclick="showTwitchSection('planning')">Planning</button>
-                    <button onclick="showTwitchSection('emotes')">Emotes</button>
-                    <button onclick="showTwitchSection('games')">Jeux joués</button>
-                </div>
-            </nav>
-            <div id="twitch-content">
-                <div id="planning" class="twitch-section" style="display: none;">
-                    <h3>Mon planning de la semaine</h3>
-                    <img src="planning.jpg" alt="Planning de la semaine">
-                </div>
-                <div id="emotes" class="twitch-section" style="display: none;">
-                    <h3>Mes emotes Twitch</h3>
-                    <img src="emotes.jpg" alt="Mes emotes">
-                </div>
-                <div id="games" class="twitch-section" style="display: none;">
-                    <h3>Jeux joués sur Twitch</h3>
-                    <p>Liste de jeux joués sur ma chaîne Twitch à venir...</p>
-                </div>
+            <div class="sub-nav-buttons">
+                <button onclick="showSubSection('planning')">Planning</button>
+                <button onclick="showSubSection('emotes')">Emotes</button>
+                <button onclick="showSubSection('jeux')">Jeux joués</button>
+            </div>
+            <div id="planning" class="twitch-section sub-section">
+                <h3>Mon planning de la semaine</h3>
+                <img src="planning.jpg" alt="Planning de la semaine">
+            </div>
+            <div id="emotes" class="twitch-section sub-section" style="display: none;">
+                <h3>Mes emotes Twitch</h3>
+                <img src="emotes.jpg" alt="Mes emotes">
+            </div>
+            <div id="jeux" class="twitch-section sub-section" style="display: none;">
+                <h3>Jeux joués sur Twitch</h3>
+                <p>Liste des jeux populaires que j'ai joués en live sur Twitch.</p>
             </div>
         </div>
 
         <!-- Bloc Contact -->
         <div id="contact" class="block" style="display: none;">
             <h2>Contact</h2>
-            <p>Suivez-moi sur <a href="https://www.twitch.tv/frozenway86" target="_blank" style="color: black;">Twitch</a></p>
-            <p>Suivez-moi sur <a href="https://twitter.com/frozenway86" target="_blank" style="color: black;">Twitter</a></p>
-            <p>Rejoignez mon Discord : <a href="#" target="_blank" style="color: black;">Discord</a></p> <!-- Remplace "#" par le lien Discord -->
+            <p>Suivez-moi sur <a href="https://www.twitch.tv/frozenway86" target="_blank">Twitch</a></p>
+            <p>Suivez-moi sur <a href="https://twitter.com/frozenway86" target="_blank">Twitter</a></p>
+            <p>Rejoignez mon Discord : <a href="#" target="_blank">Discord</a></p>
         </div>
     </div>
 
