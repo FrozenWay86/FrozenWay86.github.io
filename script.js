@@ -33,4 +33,10 @@ function nextVideo() {
 
 function prevVideo() {
     currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
-    const player = document.getElementById('video
+    const player = document.getElementById('video-player');
+    player.classList.add('hidden');
+    setTimeout(() => {
+        player.src = videos[currentVideoIndex];
+        player.classList.remove('hidden');
+    }, 500);
+}
