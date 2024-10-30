@@ -71,9 +71,9 @@ nav .nav-buttons button, .sub-nav-buttons button {
 .speedrun-list {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 10px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 20px;
 }
 
 .speedrun-list li {
@@ -88,7 +88,8 @@ nav .nav-buttons button, .sub-nav-buttons button {
 
 /* Planning spécifique */
 .planning-image {
-    max-width: 100%;
+    width: 100%;
+    max-width: 80%; /* Agrandit l'image */
     display: block;
     margin: 0 auto;
 }
