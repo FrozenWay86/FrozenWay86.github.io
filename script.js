@@ -13,24 +13,34 @@ function showSection(sectionId) {
     document.getElementById(sectionId).style.display = 'block';
 }
 
+function showSubSection(subSectionId) {
+    const subSections = document.querySelectorAll('.sub-section');
+    subSections.forEach(subSection => {
+        subSection.style.display = 'none';
+    });
+    document.getElementById(subSectionId).style.display = 'block';
+}
+
 function nextVideo() {
     currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-    document.getElementById('video-player').src = videos[currentVideoIndex];
+    const player = document.getElementById('video-player');
+    player.classList.add('hidden');
+    setTimeout(() => {
+        player.src = videos[currentVideoIndex];
+        player.classList.remove('hidden');
+    }, 500);
 }
 
 function prevVideo() {
     currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
-    document.getElementById('video-player').src = videos[currentVideoIndex];
-}
-
-function showTwitchSection(sectionId) {
-    const twitchSections = document.querySelectorAll('.twitch-section');
-    twitchSections.forEach(section => {
-        section.style.display = 'none';
-    });
-    document.getElementById(sectionId).style.display = 'block';
+    const player = document.getElementById('video-player');
+    player.classList.add('hidden');
+    setTimeout(() => {
+        player.src = videos[currentVideoIndex];
+        player.classList.remove('hidden');
+    }, 500);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    showSection('videos'); // La section vidéos est affichée par défaut
+    showSection('videos'); // Affiche la section vidéos par défaut
 });
