@@ -14,7 +14,6 @@ header {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Boutons de navigation */
 nav .nav-buttons, .sub-nav-buttons {
     text-align: center;
     margin: 20px 0;
@@ -89,7 +88,7 @@ nav .nav-buttons button, .sub-nav-buttons button {
 /* Planning spécifique */
 .planning-image {
     width: 100%;
-    max-width: 80%; /* Agrandit l'image */
+    max-width: 80%;
     display: block;
     margin: 0 auto;
 }
@@ -112,13 +111,17 @@ nav .nav-buttons button, .sub-nav-buttons button {
         font-size: 12px;
     }
 
-    .video-rotation iframe {
-        width: 100%;
-        height: auto;
-    }
-
     .video-rotation {
         flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .video-rotation iframe {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
     }
 
     .speedrun-list {
