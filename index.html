@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Clicker Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Clicker Game</h1>
+        <p>Points : <span id="score">0</span></p>
+
+        <!-- Image cliquable -->
+        <img id="clickImg" src="images/cookie.png" alt="Clicker" width="200">
+
+        <!-- Barre de progression -->
+        <div class="progress-container">
+            <div id="progress" class="progress-bar"></div>
+        </div>
+
+        <!-- Upgrades -->
+        <button id="upgradeBtn">Upgrade (+1/clic) - 10 pts</button>
+        <button id="autoBtn">Auto-click (+1/sec) - 50 pts</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
