@@ -30,8 +30,8 @@ upgradeBtn.addEventListener("click", () => {
         points -= upgradeCost;
         clicValue += 1;
 
-        // Augmenter le prix ×2
-        upgradeCost = Math.floor(upgradeCost * 2);
+        // Augmenter le prix ×1.2
+        upgradeCost = Math.round(upgradeCost * 1.2);
 
         localStorage.setItem("clicValue", clicValue);
         localStorage.setItem("upgradeCost", upgradeCost);
@@ -48,7 +48,7 @@ autoBtn.addEventListener("click", () => {
         autoClickValue += 1;
 
         // Augmenter le prix ×2
-        autoCost = Math.floor(autoCost * 2);
+        autoCost = Math.round(autoCost * 1.5);
 
         localStorage.setItem("autoClick", autoClickValue);
         localStorage.setItem("autoCost", autoCost);
