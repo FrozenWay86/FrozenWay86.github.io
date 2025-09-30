@@ -13,10 +13,9 @@ const upgradeBtn = document.getElementById("upgradeBtn");
 const autoBtn = document.getElementById("autoBtn");
 const progress = document.getElementById("progress");
 
-// Initialisation des boutons 
+// Initialisation des boutons
 upgradeBtn.innerText = `Upgrade (+1/clic) - ${upgradeCost} pts`;
 autoBtn.innerText = `Auto-click (+1/sec) - ${autoCost} pts`;
-
 scoreEl.innerText = points;
 
 // Fonction clic
@@ -31,15 +30,13 @@ upgradeBtn.addEventListener("click", () => {
         points -= upgradeCost;
         clicValue += 1;
 
-        // Augmenter le prix (par exemple ×2)
+        // Augmenter le prix ×2
         upgradeCost = Math.floor(upgradeCost * 2);
 
         localStorage.setItem("clicValue", clicValue);
         localStorage.setItem("upgradeCost", upgradeCost);
 
-        // Mettre à jour le texte du bouton
         upgradeBtn.innerText = `Upgrade (+1/clic) - ${upgradeCost} pts`;
-
         updateGame();
     }
 });
@@ -50,15 +47,13 @@ autoBtn.addEventListener("click", () => {
         points -= autoCost;
         autoClickValue += 1;
 
-        // Augmenter le prix (×2)
+        // Augmenter le prix ×2
         autoCost = Math.floor(autoCost * 2);
 
         localStorage.setItem("autoClick", autoClickValue);
         localStorage.setItem("autoCost", autoCost);
 
-        // Mettre à jour le texte du bouton
         autoBtn.innerText = `Auto-click (+1/sec) - ${autoCost} pts`;
-
         updateGame();
     }
 });
@@ -70,27 +65,24 @@ setInterval(() => {
 }, 1000);
 
 // Bonus pour la barre de progression pleine
-function updategame(){
-    scoreEl.innerText = points;
-    localStorage.setItem("points", points);
-    let progressPercent = points % 100;
-    progress.style.width = progressPercent +"%";
-
-    if (progressPercent === 0 && points !== 0){
-        givebonus();
-    }
-}
-function givebonus(){
-    points +=50;
-    clicValue +=1;
+function giveBonus(){
+    points += 50;
+    clicValue += 1;
     localStorage.setItem("points", points);
     localStorage.setItem("clicValue", clicValue);
-    alert("Bonus accordé");
+    alert("🎉 Bonus accordé !");
 }
-    
-// Met à jour l'affichage et sauvegarde
+
+// Met à jour l'affichage, barre de progression et bonus
 function updateGame(){
     scoreEl.innerText = points;
     localStorage.setItem("points", points);
-    progress.style.width = (points % 100) + "%";
+
+    let progressPercent = points % 100;
+    progress.style.width = progressPercent + "%";
+
+    // Bonus à chaque 100 points
+    if(progressPercent === 0 && points !== 0){
+        giveBonus();
+    }
 }
