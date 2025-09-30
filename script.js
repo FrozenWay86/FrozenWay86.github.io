@@ -4,8 +4,8 @@ let clicValue = parseInt(localStorage.getItem("clicValue")) || 1;
 let autoClickValue = parseInt(localStorage.getItem("autoClick")) || 0;
 
 // Tarifs de base
-let upgradeCost = parseInt(localStorage.getitem("upgradeCost")) || 10;
-let autoCost = parseInt(localStorage.getitem("autoCost")) || 50;
+let upgradeCost = parseInt(localStorage.getItem("upgradeCost")) || 10;
+let autoCost = parseInt(localStorage.getItem("autoCost")) || 50;
 
 const scoreEl = document.getElementById("score");
 const clickImg = document.getElementById("clickImg");
@@ -80,7 +80,7 @@ function updategame(){
         givebonus();
     }
 }
-function givbonus(){
+function givebonus(){
     points +=50;
     clicValue +=1;
     localStorage.setItem("points", points);
