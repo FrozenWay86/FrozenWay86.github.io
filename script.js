@@ -70,7 +70,6 @@ function giveBonus(){
     clicValue += 1;
     localStorage.setItem("points", points);
     localStorage.setItem("clicValue", clicValue);
-    alert("🎉 Bonus accordé !");
 }
 
 // Met à jour l'affichage, barre de progression et bonus
