@@ -4,41 +4,82 @@
     <meta charset="UTF-8">
     <title>Monklycker !</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        /* Sidebar à gauche */
+        .sidebar {
+            width: 250px;
+            background: #f4f4f4;
+            padding: 15px;
+            border-right: 2px solid #ccc;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Zone du jeu */
+        .main {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Monklycker !</h1>
-        <p>Points : <span id="score">0</span></p>
-
-        <!-- Image cliquable -->
-        <img id="clickImg" src="images/P1128686.png" alt="Clicker" width="200">
-
-        <!-- Barre de progression -->
-        <div class="progress-container">
-            <div id="progress" class="progress-bar"></div>
-        </div>
-
-        <!-- Upgrades -->
-        <button id="upgradeBtn">Upgrade (+1/clic) - 10 pts</button>
-        <button id="autoBtn">Auto-click (+1/sec) - 50 pts</button>
-        <button id="imgBtn">Changer d'image - 500 pts</button>
-        <button id="MusicBtn">Débloquer la musique du jeu - 100 pts</button>
-        <button id="BackgroundBtn">Débloquer l'arrière plan du jeu - 100 pts</button>
+    <!-- Règles du jeu -->
+    <div class="sidebar">
+        <h2>Règles</h2>
+        <ul>
+            <li>Clique sur l’image pour gagner des Monkycoins</li>
+            <li>Achète des upgrades pour booster tes clics</li>
+            <li>L’auto-click génère des Monkycoins automatiquement</li>
+            <li>Certains boutons ne peuvent être utilisés qu’une seule fois</li>
+            <li>Débloque la musique et l’arrière-plan pour personnaliser ton jeu</li>
+        </ul>
     </div>
 
-    <p style="text-align:center; margin-top:30px; font-size:14px; color:gray;">
-  Développé par FrozenWay — 
-  <a href="https://ko-fi.com/frozenway" target="_blank" style="color:lightblue; text-decoration:none;">
-    Soutiens-moi sur Ko-fi ☕
-  </a>
-</p>
+    <!-- Partie principale -->
+    <div class="main">
+        <div class="container">
+            <h1>Monklycker !</h1>
+            <p>Points : <span id="score">0</span></p>
 
-    <p style="text-align:center; margin-top:30px; font-size:14px; color:gray;">
-  Co développé par Frites_des_iles — 
-  <a href="https://ko-fi.com/frozenway" target="_blank" style="color:lightblue; text-decoration:none;">
-    Soutiens-moi sur Ko-fi ☕
-  </a>
-</p>
+            <!-- Image cliquable -->
+            <img id="clickImg" src="images/P1128686.png" alt="Clicker" width="200">
+
+            <!-- Barre de progression -->
+            <div class="progress-container">
+                <div id="progress" class="progress-bar"></div>
+            </div>
+
+            <!-- Upgrades -->
+            <button id="upgradeBtn">Upgrade (+1/clic) - 10 pts</button>
+            <button id="autoBtn">Auto-click (+1/sec) - 50 pts</button>
+            <button id="imgBtn">Changer d'image - 500 pts</button>
+            <button id="MusicBtn">Débloquer la musique du jeu - 100 pts</button>
+            <button id="BackgroundBtn">Débloquer l'arrière plan du jeu - 100 pts</button>
+        </div>
+
+        <!-- Crédit / lien Ko-fi -->
+        <p style="text-align:center; margin-top:30px; font-size:14px; color:gray;">
+            Développé par FrozenWay — 
+            <a href="https://ko-fi.com/frozenway" target="_blank" style="color:lightblue; text-decoration:none;">
+                Soutiens-moi sur Ko-fi ☕
+            </a>
+        </p>
+
+        <p style="text-align:center; margin-top:10px; font-size:14px; color:gray;">
+            Co-développé par Frites_des_iles
+        </p>
+    </div>
 
     <script src="script.js"></script>
 </body>
