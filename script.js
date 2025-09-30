@@ -69,6 +69,25 @@ setInterval(() => {
     updateGame();
 }, 1000);
 
+// Bonus pour la barre de progression pleine
+function updategame(){
+    scoreEl.innerText = points;
+    localStorage.setItem("points", points);
+    let progressPercent = points % 100;
+    progress.style.width = progressPercent +"%";
+
+    if (progressPercent === 0 && points !== 0){
+        givebonus();
+    }
+}
+function givbonus(){
+    points +=50;
+    clicValue +=1;
+    localStorage.setItem("points", points);
+    localStorage.setItem("clicValue", clicValue);
+    alert("Bonus accordé");
+}
+    
 // Met à jour l'affichage et sauvegarde
 function updateGame(){
     scoreEl.innerText = points;
