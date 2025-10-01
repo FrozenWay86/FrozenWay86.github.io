@@ -2,6 +2,8 @@
 let points = parseInt(localStorage.getItem("points")) || 0;
 let clicValue = parseInt(localStorage.getItem("clicValue")) || 1;
 let autoClickValue = parseInt(localStorage.getItem("autoClick")) || 0;
+let clickUpgrade = parseInt(localStorage.getItem("clickUpgrade")) || 0;
+let autoClickUpgrades = parseInt(localStorage.getItem("autoClickUpgrades")) || 0;
 
 // Tarifs de base
 let upgradeCost = parseInt(localStorage.getItem("upgradeCost")) || 10;
@@ -27,19 +29,21 @@ clickImg.addEventListener("click", () => {
     updateGame();
 });
 
-// Upgrade clic
+// Upgrade clic f(x)=(1.5^1.00001*(x/8+1))*5
 upgradeBtn.addEventListener("click", () => {
     if(points >= upgradeCost){
         points -= upgradeCost;
-        clicValue += 1;
+        clickUpgrade += 1;
+        clicValue = (1.5 ** (1.0001*((clickUpgrade/8)+1)))*5;
 
-        // Augmenter le prix ×1.1
-        upgradeCost = Math.round(upgradeCost * 1.1);
+        // Augmenter le prix g(x)=(1.1^1.00001*x/8)*5
+        upgradeCost = Math.round((1.1 * (10 ** (1.00001*clickUpgrade/8)))*5);
 
         localStorage.setItem("clicValue", clicValue);
         localStorage.setItem("upgradeCost", upgradeCost);
+        localStorage.setItem("clickUpgrade", clickUpgrade);
 
-        upgradeBtn.innerText = `Upgrade (+1/clic) - ${upgradeCost} pts`;
+        upgradeBtn.innerText = `Upgrade - ${upgradeCost} pts`;
         updateGame();
     }
 });
@@ -48,15 +52,19 @@ upgradeBtn.addEventListener("click", () => {
 autoBtn.addEventListener("click", () => {
     if(points >= autoCost){
         points -= autoCost;
-        autoClickValue += 1;
+        autoClickUpgrades += 1;
 
-        // Augmenter le prix ×1.5
-        autoCost = Math.round(autoCost * 1.5);
+        //Valeur de l'autoclick (= a la valeur d'un click)
+        autoClickValue = autoClickUpgrades*((1.5 ** (1.0001*((clickUpgrades/8)+1)))*5);
+
+        // Augmenter le prix (5 fois plus vite que clic)
+        autoCost = Math.round(((1.1 * (10 ** (1.00001*autoClickUpgrades/8)))*5)*5);
 
         localStorage.setItem("autoClick", autoClickValue);
         localStorage.setItem("autoCost", autoCost);
+        localStorage.setItem("autoClickUpgrades", autoClickUpgrades);
 
-        autoBtn.innerText = `Auto-click (+1/sec) - ${autoCost} pts`;
+        autoBtn.innerText = `Auto-click - ${autoCost} pts`;
         updateGame();
     }
 });
@@ -69,15 +77,15 @@ setInterval(() => {
 
 // Bonus hors barre
 function giveBonus(){
-    points += 50;      // bonus points
-    clicValue += 1;    // bonus clic
-    localStorage.setItem("points", points);
+    clickUpgrade += 1    // bonus clic
+    clicValue = (1.5 ** (1.0001*((clickUpgrade/8)+1)))*5;
     localStorage.setItem("clicValue", clicValue);
+    localStorage.setItem("clickUpgrade", clickUpgrade);
 }
 
 // Met à jour l'affichage et barre de progression
 function updateGame(){
-    scoreEl.innerText = points;
+    scoreEl.innerText = Math.round(points);
     localStorage.setItem("points", points);
 
     // Calcul de la barre de progression
