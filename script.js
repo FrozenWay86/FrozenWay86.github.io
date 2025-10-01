@@ -46,7 +46,7 @@ upgradeBtn.addEventListener("click", () => {
         upgradeBtn.innerText = `Upgrade - ${upgradeCost} pts`;
         updateGame();
     }
-});
+}); 
 
 // Upgrade auto-click
 autoBtn.addEventListener("click", () => {
@@ -55,7 +55,7 @@ autoBtn.addEventListener("click", () => {
         autoClickUpgrades += 1;
 
         //Valeur de l'autoclick (= a la valeur d'un click)
-        autoClickValue = autoClickUpgrades*((1.5 ** (1.0001*((clickUpgrades/8)+1)))*5);
+        autoClickValue = autoClickUpgrades*((1.5 ** (1.0001*((clickUpgrade/8)+1))));
 
         // Augmenter le prix (5 fois plus vite que clic)
         autoCost = Math.round(((1.1 * (10 ** (1.00001*autoClickUpgrades/8)))*5)*5);
