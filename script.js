@@ -6,8 +6,8 @@ let clickUpgrade = parseInt(localStorage.getItem("clickUpgrade")) || 0;
 let autoClickUpgrades = parseInt(localStorage.getItem("autoClickUpgrades")) || 0;
 
 // Tarifs de base
-let upgradeCost = parseInt(localStorage.getItem("upgradeCost")) || 10;
-let autoCost = parseInt(localStorage.getItem("autoCost")) || 50;
+let upgradeCost = parseInt(localStorage.getItem("upgradeCost")) || 5;
+let autoCost = parseInt(localStorage.getItem("autoCost")) || 30;
 
 const scoreEl = document.getElementById("score");
 const clickImg = document.getElementById("clickImg");
@@ -16,8 +16,8 @@ const autoBtn = document.getElementById("autoBtn");
 const progress = document.getElementById("progress");
 
 // Initialisation des boutons
-upgradeBtn.innerText = `Upgrade (+1/clic) - ${upgradeCost} pts`;
-autoBtn.innerText = `Auto-click (+1/sec) - ${autoCost} pts`;
+upgradeBtn.innerText = `Upgrade de clic - ${upgradeCost} pts`;
+autoBtn.innerText = `Auto-click - ${autoCost} pts`;
 scoreEl.innerText = points;
 
 // Variable pour suivre la dernière barre complète
