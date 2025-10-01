@@ -4,6 +4,7 @@ let clicValue = parseInt(localStorage.getItem("clicValue")) || 1;
 let autoClickValue = parseInt(localStorage.getItem("autoClick")) || 0;
 let clickUpgrade = parseInt(localStorage.getItem("clickUpgrade")) || 0;
 let autoClickUpgrades = parseInt(localStorage.getItem("autoClickUpgrades")) || 0;
+let clickBar = parseInt(localStorage.getItem("clicBar")) || 0;
 
 // Tarifs de base
 let upgradeCost = parseInt(localStorage.getItem("upgradeCost")) || 5;
@@ -20,12 +21,13 @@ upgradeBtn.innerText = `Upgrade de clic - ${upgradeCost} pts`;
 autoBtn.innerText = `Auto-click - ${autoCost} pts`;
 scoreEl.innerText = points;
 
-// Variable pour suivre la dernière barre complète
-let lastProgressMilestone = Math.floor(points / 100);
 
 // Fonction clic
 clickImg.addEventListener("click", () => {
     points += clicValue;
+    clickBar += 1
+
+    localStorage.setItem("clickBar", clickBar);
     updateGame();
 });
 
@@ -54,7 +56,7 @@ autoBtn.addEventListener("click", () => {
         points -= autoCost;
         autoClickUpgrades += 1;
 
-        //Valeur de l'autoclick (= a la valeur d'un click)
+        //Valeur de l'autoclick (= a la valeur d'un click /5)
         autoClickValue = autoClickUpgrades*((1.5 ** (1.0001*((clickUpgrade/8)+1))));
 
         // Augmenter le prix (5 fois plus vite que clic)
@@ -72,6 +74,9 @@ autoBtn.addEventListener("click", () => {
 // Auto-click toutes les secondes
 setInterval(() => {
     points += autoClickValue;
+    clickBar += 0.1;
+
+    localStorage.setItem("clickBar", clickBar);
     updateGame();
 }, 1000);
 
@@ -89,13 +94,13 @@ function updateGame(){
     localStorage.setItem("points", points);
 
     // Calcul de la barre de progression
-    let progressPercent = points % 100;
+    let progressPercent = clickBar % 100;
     progress.style.width = progressPercent + "%";
 
     // Bonus hors barre : vérifier si on vient de franchir un multiple de 100
-    let currentMilestone = Math.floor(points / 100);
-    if(currentMilestone > lastProgressMilestone){
+    if(clickBar >= 100){
+        clickBar = 0;
+        localStorage.setItem("clickBar", clickBar);
         giveBonus();
-        lastProgressMilestone = currentMilestone;
     }
 }
