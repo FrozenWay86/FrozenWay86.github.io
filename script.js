@@ -20,3 +20,24 @@ localStorage.setItem("predictions", JSON.stringify(predictions))
 alert("Pronostic enregistré !")
 
 })
+
+const drivers = [
+"Max Verstappen",
+"Lando Norris",
+"Charles Leclerc",
+"Carlos Sainz",
+"Lewis Hamilton",
+"George Russell",
+"Fernando Alonso",
+"Lance Stroll",
+"Pierre Gasly",
+"Esteban Ocon",
+"Yuki Tsunoda",
+"Daniel Ricciardo",
+"Alexander Albon",
+"Logan Sargeant",
+"Valtteri Bottas",
+"Zhou Guanyu",
+"Kevin Magnussen",
+"Nico Hulkenberg"
+]
