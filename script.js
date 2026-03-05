@@ -41,3 +41,27 @@ const drivers = [
 "Kevin Magnussen",
 "Nico Hulkenberg"
 ]
+
+function populateDrivers(){
+
+const selects = ["pole","p1","p2","p3","fastest"]
+
+selects.forEach(id => {
+
+const select = document.getElementById(id)
+
+drivers.forEach(driver => {
+
+let option = document.createElement("option")
+option.value = driver
+option.textContent = driver
+
+select.appendChild(option)
+
+})
+
+})
+
+}
+
+populateDrivers()
