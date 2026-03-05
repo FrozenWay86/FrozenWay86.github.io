@@ -2,23 +2,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const drivers = [
 "Max Verstappen",
-"Lando Norris",
+"Isack Hadjar",
 "Charles Leclerc",
-"Carlos Sainz",
 "Lewis Hamilton",
-"George Russell",
 "Fernando Alonso",
 "Lance Stroll",
-"Pierre Gasly",
+"Pierre Gasly",  
+"Franco Colapinto",  
+"Lando Norris",
+"Oscar Piastri",
+"George Russell",
+"Kimi Antonelli",
 "Esteban Ocon",
-"Yuki Tsunoda",
-"Daniel Ricciardo",
+"Oliver Bearman", 
+"Nico Hülkenberg",
+"Gabriel Bortoleto",
+"Liam Lawson",
+"Arvid Lindblad",
+"Carlos Sainz",
 "Alexander Albon",
-"Logan Sargeant",
 "Valtteri Bottas",
-"Zhou Guanyu",
-"Kevin Magnussen",
-"Nico Hulkenberg"
+"Sergio Perez"
 ]
 
 function populateDrivers(){
