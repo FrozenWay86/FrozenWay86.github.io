@@ -1,33 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-document.getElementById("predictionForm").addEventListener("submit", function(e){
-
-e.preventDefault()
-
-let option = document.createElement("option")
-option.textContent = "-- choisir un pilote --"
-option.value = ""
-select.appendChild(option)
-  
-const prediction = {
-player: document.getElementById("player").value,
-pole: document.getElementById("pole").value,
-p1: document.getElementById("p1").value,
-p2: document.getElementById("p2").value,
-p3: document.getElementById("p3").value,
-fastest: document.getElementById("fastest").value
-}
-
-let predictions = JSON.parse(localStorage.getItem("predictions")) || []
-
-predictions.push(prediction)
-
-localStorage.setItem("predictions", JSON.stringify(predictions))
-
-alert("Pronostic enregistré !")
-
-})
-
 const drivers = [
 "Max Verstappen",
 "Lando Norris",
@@ -57,6 +29,11 @@ selects.forEach(id => {
 
 const select = document.getElementById(id)
 
+let defaultOption = document.createElement("option")
+defaultOption.textContent = "-- choisir un pilote --"
+defaultOption.value = ""
+select.appendChild(defaultOption)
+
 drivers.forEach(driver => {
 
 let option = document.createElement("option")
@@ -71,6 +48,43 @@ select.appendChild(option)
 
 }
 
+function preventDuplicatePodium(){
+
+const podiumSelects = ["p1","p2","p3"].map(id => document.getElementById(id))
+
+podiumSelects.forEach(select => {
+
+select.addEventListener("change", () => {
+
+const selectedValues = podiumSelects.map(s => s.value)
+
+podiumSelects.forEach(s => {
+Array.from(s.options).forEach(option => option.disabled = false)
+})
+
+podiumSelects.forEach(s => {
+
+selectedValues.forEach(value => {
+
+if(value !== "" && s.value !== value){
+
+let option = Array.from(s.options).find(o => o.value === value)
+
+if(option) option.disabled = true
+
+}
+
+})
+
+})
+
+})
+
+})
+
+}
+
 populateDrivers()
+preventDuplicatePodium()
 
 })
