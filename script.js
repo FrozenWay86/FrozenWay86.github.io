@@ -4,6 +4,11 @@ document.getElementById("predictionForm").addEventListener("submit", function(e)
 
 e.preventDefault()
 
+let option = document.createElement("option")
+option.textContent = "-- choisir un pilote --"
+option.value = ""
+select.appendChild(option)
+  
 const prediction = {
 player: document.getElementById("player").value,
 pole: document.getElementById("pole").value,
