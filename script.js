@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function () {
+
 document.getElementById("predictionForm").addEventListener("submit", function(e){
 
 e.preventDefault()
@@ -65,3 +67,5 @@ select.appendChild(option)
 }
 
 populateDrivers()
+
+})
