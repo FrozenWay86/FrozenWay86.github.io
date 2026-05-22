@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monza - Track Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles spécifiques à la page du circuit */
+        .track-banner {
+            max-width: 1000px;
+            margin: 20px auto;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            background: linear-gradient(to right, rgba(11,15,25,0.95), rgba(11,15,25,0.4)), url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1000');
+            background-size: cover;
+            padding: 40px;
+        }
+        .back-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .filter-bar {
+            max-width: 1000px;
+            margin: 20px auto;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .btn-tab {
+            background: #182030;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .btn-tab.active[data-cat="hypercar"] { background: var(--hypercar); }
+        .btn-tab.active[data-cat="lmp2"] { background: var(--lmp2); }
+        .btn-tab.active[data-cat="gt3"] { background: var(--gt3); }
+        
+        /* Liste des virages */
+        .turns-container { max-width: 1000px; margin: 0 auto; }
+        .turn-row {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            padding: 20px;
+            cursor: pointer;
+        }
+        .turn-header { display: flex; justify-content: space-between; align-items: center; }
+        .turn-left { display: flex; align-items: center; gap: 15px; }
+        .turn-badge { background: #222c3f; padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 0.85rem; }
+        .turn-type { background: #841818; color: #ff9494; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; }
+        .brake-target { color: var(--neon-green); font-weight: bold; }
+        
+        /* Details masqués par défaut */
+        .turn-details { display: none; margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 20px; }
+        .telemetry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 15px;}
+        .tel-card { background: #182030; padding: 12px; border-radius: 8px; }
+        .tel-title { font-size: 0.8rem; color: var(--text-muted); }
+        .tel-val { font-size: 1.1rem; font-weight: bold; margin-top: 5px; }
+        .coach-tip { background: #112620; border: 1px solid #1f4d3e; color: #a3ebd4; padding: 12px; border-radius: 8px; display: flex; gap: 10px; align-items: center; }
+    </style>
+</head>
+<body>
+
+    <div class="track-banner">
+        <a href="index.html" class="back-link">← Tous les circuits</a>
+        <h2 style="font-size: 2.5rem; margin: 15px 0 5px 0;">Autodromo di Monza</h2>
+        <div style="color: var(--text-muted); display:flex; gap: 15px; font-size: 0.9rem;">
+            <span>📍 Monza, Italy</span>
+            <span>📏 5.793 km</span>
+            <span>↪️ 7 virages</span>
+        </div>
+    </div>
+
+    <div class="filter-bar">
+        <button class="btn-tab active" data-cat="hypercar">Hypercar</button>
+        <button class="btn-tab" data-cat="lmp2">LMP2</button>
+        <button class="btn-tab" data-cat="gt3">GT3</button>
+    </div>
+
+    <div class="turns-container" id="turns-list">
+        </div>
+
+    <script>
+        // Ta base de données des virages de Monza
+        const trackData = {
+            hypercar: [
+                { id: "T1-T2", name: "Variante del Rettifilo", type: "Chicane", speed: "330→80 km/h", brake: "100m board", gear: "1st", pressure: "Very Heavy", tip: "Brake at the 100m board. Hit the curbs carefully to maximize exit speed." },
+                { id: "T3-T4", name: "Curva Grande", type: "Fast", speed: "310+ km/h", brake: "Flat", gear: "6th", pressure: "None", tip: "Keep it smooth, hug the inside line close to the curb." }
+            ],
+            lmp2: [
+                { id: "T1-T2", name: "Variante del Rettifilo", type: "Chicane", speed: "310→75 km/h", brake: "120m board", gear: "1st", pressure: "Heavy", tip: "Slightly earlier braking than Hypercar due to downforce profile." },
+                { id: "T3-T4", name: "Curva Grande", type: "Fast", speed: "295+ km/h", brake: "Flat", gear: "5th", pressure: "None", tip: "Full throttle all the way through." }
+            ],
+            gt3: [
+                { id: "T1-T2", name: "Variante del Rettifilo", type: "Chicane", speed: "270→65 km/h", brake: "150m board", gear: "2nd", pressure: "Very heavy", tip: "Brake at the 150m board. Long braking zone — don't lock up on the initial hit." },
+                { id: "T3-T4", name: "Curva Grande", type: "Fast", speed: "250+ km/h", brake: "Flat", gear: "4th", pressure: "None", tip: "Easy flat, look far ahead for the next breaking zone." }
+            ]
+        };
+
+        let currentCategory = 'hypercar';
+
+        function renderTurns() {
+            const container = document.getElementById('turns-list');
+            container.innerHTML = ''; // Clear
+
+            trackData[currentCategory].forEach(turn => {
+                const turnRow = document.createElement('div');
+                turnRow.className = 'turn-row';
+                turnRow.innerHTML = `
+                    <div class="turn-header" onclick="toggleDetails('${turn.id}')">
+                        <div class="turn-left">
+                            <span class="turn-badge">${turn.id}</span>
+                            <div>
+                                <strong style="font-size:1.1rem;">${turn.name}</strong>
+                                <div style="margin-top:4px;"><span class="turn-type">${turn.type}</span> <span style="color:var(--text-muted); font-size:0.85rem; margin-left:8px;">${turn.speed}</span></div>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size:0.75rem; color:var(--text-muted);">Brake at</div>
+                            <span class="brake-target">${turn.brake}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="turn-details" id="details-${turn.id}">
+                        <div class="telemetry-grid">
+                            <div class="tel-card"><div class="tel-title">⚠️ Braking Point</div><div class="tel-val" style="color:var(--neon-green)">${turn.brake}</div></div>
+                            <div class="tel-card"><div class="tel-title">⏱️ Speed</div><div class="tel-val">${turn.speed}</div></div>
+                            <div class="tel-card"><div class="tel-title">⚙️ Gear</div><div class="tel-val">${turn.gear}</div></div>
+                            <div class="tel-card"><div class="tel-title">🛑 Pressure</div><div class="tel-val" style="color:var(--hypercar)">${turn.pressure}</div></div>
+                        </div>
+                        <div class="coach-tip">
+                            <span>💡</span>
+                            <div>${turn.tip}</div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(turnRow);
+            });
+        }
+
+        // Gérer le clic pour ouvrir/fermer l'accordéon d'un virage
+        function toggleDetails(id) {
+            const element = document.getElementById(`details-${id}`);
+            if(element.style.display === 'block') {
+                element.style.display = 'none';
+            } else {
+                element.style.display = 'block';
+            }
+        }
+
+        // Événements sur les boutons de catégories
+        document.querySelectorAll('.btn-tab').forEach(button => {
+            button.addEventListener('click', (e) => {
+                document.querySelectorAll('.btn-tab').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentCategory = e.target.getAttribute('data-cat');
+                renderTurns();
+            });
+        });
+
+        // Premier chargement
+        renderTurns();
+    </script>
+</body>
+</html>
