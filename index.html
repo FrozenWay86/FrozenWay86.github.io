@@ -1,41 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<title>APEX Fantasy</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApexPoints - Le Mans Ultimate Braking Guide</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <header>
+        <div class="logo">ApexPoints</div>
+        <nav>
+            <a href="index.html" class="active">Accueil</a>
+            <a href="track-guide.html">Guides des circuits</a>
+        </nav>
+    </header>
 
-<h1>🏎️ APEX Fantasy</h1>
+    <main class="hero">
+        <h1>ApexPoints</h1>
+        <p class="subtitle">Master braking zones for Le Mans Ultimate tracks with precision-guided telemetry and car-class specific references.</p>
+        
+        <div class="cta-container">
+            <a href="track-guide.html" class="btn-primary">Accéder au Track Guide</a>
+        </div>
+    </main>
 
-<h2>Pronostic du prochain GP</h2>
-
-<form id="predictionForm">
-
-<label>Ton nom</label>
-<input type="text" id="player" required>
-
-<label>Pole position</label>
-<select id="pole"></select>
-
-<label>1er</label>
-<select id="p1"></select>
-
-<label>2e</label>
-<select id="p2"></select>
-
-<label>3e</label>
-<select id="p3"></select>
-
-<label>Meilleur tour</label>
-<select id="fastest"></select>
-
-<button type="submit">Envoyer pronostic</button>
-
-</form>
-
-<script src="script.js"></script>
-
+    <footer>
+        <p>&copy; 2026 ApexPoints - Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
