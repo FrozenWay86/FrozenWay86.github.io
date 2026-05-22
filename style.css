@@ -1,80 +1,98 @@
 :root {
-    --bg-color: #0b0f19;
-    --text-color: #f3f4f6;
-    --accent-color: #ff3e3e; /* Rouge typé racing */
-    --card-bg: #1e293b;
+    --bg-dark: #0b0f17;
+    --card-bg: #131926;
+    --border-color: #222c3f;
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    --hypercar: #ff3e3e;
+    --lmp2: #3b82f6;
+    --gt3: #f59e0b;
+    --neon-green: #00ffaa;
 }
 
 body {
-    margin: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
 }
 
+/* Header */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    border-bottom: 1px solid #334155;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: var(--accent-color);
-}
-
-nav a {
-    color: #94a3b8;
-    text-decoration: none;
-    margin-left: 20px;
-    transition: color 0.3s;
-}
-
-nav a:hover, nav a.active {
-    color: var(--text-color);
-}
-
-.hero {
     text-align: center;
-    padding: 100px 20px;
-    max-width: 800px;
+    margin: 40px auto;
+    max-width: 700px;
+}
+.subtitle-game {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+h1 span {
+    color: var(--neon-green);
+}
+.hero-desc {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+.badge-h { color: var(--hypercar); font-weight: bold; }
+.badge-l { color: var(--lmp2); font-weight: bold; }
+.badge-g { color: var(--gt3); font-weight: bold; }
+
+/* Separator */
+.separator {
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    line-height: 0.1em;
+    margin: 40px 0;
+}
+.separator span {
+    background: var(--bg-dark);
+    padding: 0 15px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* Grille de circuits */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
     margin: 0 auto;
 }
-
-h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-}
-
-.subtitle {
-    font-size: 1.25rem;
-    color: #94a3b8;
-    margin-bottom: 40px;
-}
-
-.btn-primary {
-    background-color: var(--accent-color);
-    color: white;
-    padding: 12px 30px;
-    border-radius: 6px;
+.circuit-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
     text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.2s, background-color 0.3s;
+    color: inherit;
+    transition: transform 0.2s, border-color 0.2s;
 }
-
-.btn-primary:hover {
-    background-color: #e03232;
-    transform: translateY(-2px);
+.circuit-card:hover {
+    transform: translateY(-4px);
+    border-color: #3b4861;
 }
-
-footer {
-    text-align: center;
-    padding: 40px;
-    color: #64748b;
-    font-size: 0.9rem;
+.card-img {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+}
+.card-content {
+    padding: 20px;
+}
+.card-content h3 { margin: 0 0 5px 0; font-size: 1.3rem; }
+.location { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 15px 0; }
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text-muted);
 }
